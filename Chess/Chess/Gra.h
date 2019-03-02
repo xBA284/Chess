@@ -122,5 +122,6 @@ a1, b1, c1, d1, e1, f1, g1, h1;
 cPole plansza[8][8];
 
 cPole const plansza_startowa[8][8]{
-	{a8.figura_na_polu = &czarny_w1, b8.figura_na_polu = &czarny_k1, c8.figura_na_polu = &czarny_g1, d8.figura_na_polu = &czarny_h1, }
+{a8.figura_na_polu = &czarny_w1, b8.figura_na_polu = &czarny_k1, c8.figura_na_polu = &czarny_g1, d8.figura_na_polu = &czarny_h1, e8.figura_na_polu = &czarny_krol1, f8.figura_na_polu = &czarny_g2, g8.figura_na_polu = &czarny_k2, h8.figura_na_polu = &czarny_w2},
+{a7.figura_na_polu =}
 }
