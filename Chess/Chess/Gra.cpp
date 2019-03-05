@@ -8,17 +8,43 @@ cFigura::~cFigura()
 {
 }
 
-KOLOR cFigura::pobierz_kolor()
+cPlansza::cPlansza()
 {
-	return kolor;
+	pole[0][] = ;
 }
 
-unsigned short cFigura::pobierz_liczbe_porzadkowa()
+cPlansza::~cPlansza()
 {
-	return liczba_porzadkowa;
+	;
 }
 
-bool cFigura::pobierz_czy_zbity()
+void cTworz_figury::tworz_figury_startowe()
 {
-	return zbity;
+	for (short i = 0; i < 8; i++)
+	{
+		biale_pionki[i] = new cPionek();
+		czarne_pionki[i] = new cPionek();
+	}
+	for (short i = 0; i < 2; i++)
+	{
+		biale_wieze[i] = new cWieza();
+		czarne_wieze[i] = new cWieza();
+	}
+	for (short i = 0; i < 2; i++)
+	{
+		biale_konie[i] = new cKon();
+		czarne_konie[i] = new cKon();
+	}
+	for (short i = 0; i < 2; i++)
+	{
+		biale_gonce[i] = new cGoniec();
+		czarne_gonce[i] = new cGoniec();
+	}
+	
+	biale_hetmany[0] = new cHetman();
+	czarne_hetmany[0] = new cHetman();
+
+	bialy_krol = new cKrol();
+	czarny_krol = new cKrol();
+	
 }
