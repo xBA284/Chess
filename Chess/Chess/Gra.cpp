@@ -10,12 +10,28 @@ cFigura::~cFigura()
 
 cPlansza::cPlansza()
 {
-	pole[0][] = ;
+	for (short i = 0; i < 8; i++)
+	{
+		for (short j = 0; j < 8; j++)
+		{
+			pole[i][j] = plansza_poczatkowa[i][j];
+		}
+	}
 }
 
 cPlansza::~cPlansza()
 {
 	;
+}
+
+cTworz_figury::cTworz_figury()
+{
+	tworz_figury_startowe();
+}
+
+cTworz_figury::~cTworz_figury()
+{
+
 }
 
 void cTworz_figury::tworz_figury_startowe()
