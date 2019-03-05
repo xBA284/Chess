@@ -53,6 +53,7 @@ class cKon : public cFigura
 public:
 	cKon();
 	~cKon();
+	void ruch();
 };
 
 class cGoniec : public cFigura
@@ -60,6 +61,7 @@ class cGoniec : public cFigura
 public:
 	cGoniec();
 	~cGoniec();
+	void ruch();
 };
 
 class cHetman : public cFigura
@@ -67,6 +69,7 @@ class cHetman : public cFigura
 public:
 	cHetman();
 	~cHetman();
+	void ruch();
 };
 
 class cKrol : public cFigura
@@ -76,6 +79,7 @@ public:
 
 	cKrol();
 	~cKrol();
+	void ruch();
 };
 
 class cTworz_figury
