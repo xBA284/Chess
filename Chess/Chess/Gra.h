@@ -2,8 +2,8 @@
 #include <string>
 
 enum STAN_GRY { stop = 0, start = 1, koniec = 2 };
-enum SYMBOL { pionek = 'P', wieza = 'W', skoczek = 'S', goniec = 'G', hetman = 'H', krol = 'K' };
-enum KOLOR { bialy = 0, czarny = 1 };
+enum SYMBOL { pionek = 'P', wieza = 'W', skoczek = 'S', goniec = 'G', hetman = 'H', krol = 'K', pusty = ' '};
+enum KOLOR { bialy = 0, czarny = 1, zaden = 2 };
 
 class cGra
 {
@@ -22,6 +22,14 @@ public:
 	KOLOR kolor;
 
 	virtual void ruch() = 0;
+};
+
+class cPuste : public cFigura
+{
+public:
+	cPuste();
+	~cPuste();
+	void ruch();
 };
 
 class cPionek : public cFigura
@@ -99,7 +107,7 @@ public:
 	cHetman* czarne_hetmany[9];
 	cKrol* bialy_krol;
 	cKrol* czarny_krol;
-	cFigura* pole_puste;
+	cPuste* pole_puste;
 
 	cTworz_figury();
 	~cTworz_figury();

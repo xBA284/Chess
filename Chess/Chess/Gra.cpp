@@ -79,6 +79,7 @@ void cTworz_figury::tworz_figury_startowe()
 	bialy_krol = new cKrol(bialy);
 	czarny_krol = new cKrol(czarny);
 	
+	pole_puste = new cPuste;
 }
 
 cPionek::cPionek(KOLOR podany_kolor)
@@ -162,3 +163,12 @@ void cKrol::roszada()
 {
 }
 
+cPuste::cPuste()
+{
+	symbol = pusty;
+	kolor = zaden;
+}
+
+void cPuste::ruch()
+{
+}
