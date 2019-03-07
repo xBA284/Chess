@@ -95,37 +95,11 @@ public:
 class cTworz_figury
 {
 public:
-	cPionek* biale_pionki[8];
-	cPionek* czarne_pionki[8];
-	cWieza* biale_wieze[10];
-	cWieza* czarne_wieze[10];
-	cSkoczek* biale_skoczki[10];
-	cSkoczek* czarne_skoczki[10];
-	cGoniec* biale_gonce[10];
-	cGoniec* czarne_gonce[10];
-	cHetman* biale_hetmany[9];
-	cHetman* czarne_hetmany[9];
-	cKrol* bialy_krol;
-	cKrol* czarny_krol;
-	cPuste* pole_puste;
-
-	cTworz_figury();
-	~cTworz_figury();
-	void tworz_figury_startowe();
+	cFigura* stworz_figure(SYMBOL symbol, KOLOR kolor) const;
+	cFigura* stworz_puste_pose() const;
 };
 
 extern cTworz_figury stwarzacz;
-
-cFigura* const plansza_poczatkowa[8][8]{
-	{stwarzacz.czarne_wieze[0], stwarzacz.czarne_skoczki[0], stwarzacz.czarne_gonce[0], stwarzacz.czarne_hetmany[0], stwarzacz.czarny_krol, stwarzacz.czarne_gonce[1], stwarzacz.czarne_skoczki[1], stwarzacz.czarne_wieze[1]},
-	{stwarzacz.czarne_pionki[0], stwarzacz.czarne_pionki[1], stwarzacz.czarne_pionki[2], stwarzacz.czarne_pionki[3], stwarzacz.czarne_pionki[4], stwarzacz.czarne_pionki[5], stwarzacz.czarne_pionki[6], stwarzacz.czarne_pionki[7]},
-	{stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste},
-	{stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste},
-	{stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste},
-	{stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste, stwarzacz.pole_puste},
-	{stwarzacz.biale_pionki[0], stwarzacz.biale_pionki[1], stwarzacz.biale_pionki[2], stwarzacz.biale_pionki[3], stwarzacz.biale_pionki[4], stwarzacz.biale_pionki[5], stwarzacz.biale_pionki[6], stwarzacz.biale_pionki[7]},
-	{stwarzacz.biale_wieze[0], stwarzacz.biale_skoczki[0], stwarzacz.biale_gonce[0], stwarzacz.biale_hetmany[0], stwarzacz.bialy_krol, stwarzacz.biale_gonce[1], stwarzacz.biale_skoczki[1], stwarzacz.biale_wieze[1]}
-};
 
 class cPlansza
 {

@@ -1,12 +1,11 @@
 ﻿
 #include <iostream>
-#include <conio.h>
 #include <string>
-#include "gra.h"
+#include <Gra.h>
 
 int main()
 {
 	plansza.rysuj_plansze();
 
-	_getch();
+    return 0;
 }
