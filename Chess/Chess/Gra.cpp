@@ -29,7 +29,7 @@ cPlansza::~cPlansza()
 
 void cPlansza::rysuj_plansze()
 {
-	std::cout << " - - - - - - - - " << std::endl;
+	std::cout << "  - - - - - - - - " << std::endl;
 	for (short i = 0; i < 8; i++)
 	{
 		std::cout << "| ";
@@ -39,6 +39,7 @@ void cPlansza::rysuj_plansze()
 		}
 		std::cout << "|";
 	}
+	std::cout << "  - - - - - - - - " << std::endl;
 }
 
 cTworz_figury::cTworz_figury()
