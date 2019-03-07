@@ -1,13 +1,5 @@
 #include "Gra.h"
 
-cFigura::cFigura()
-{
-}
-
-cFigura::~cFigura()
-{
-}
-
 cPlansza::cPlansza()
 {
 	for (short i = 0; i < 8; i++)
