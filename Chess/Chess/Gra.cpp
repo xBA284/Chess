@@ -21,7 +21,13 @@ cPlansza::cPlansza()
 
 cPlansza::~cPlansza()
 {
-	;
+	for (short i = 0; i < 8; i++)
+	{
+		for (short j = 0; j < 8; j++)
+		{
+			delete pole[i][j];
+		}
+	}
 }
 
 cTworz_figury::cTworz_figury()
@@ -63,4 +69,20 @@ void cTworz_figury::tworz_figury_startowe()
 	bialy_krol = new cKrol();
 	czarny_krol = new cKrol();
 	
+}
+
+cPionek::cPionek(KOLOR podany_kolor)
+{
+	symbol = pionek;
+	kolor = podany_kolor;
+	ruszyl_sie = false;
+	jest_na_koncu = false;
+}
+
+cKrol::cKrol(KOLOR podany_kolor)
+{
+	symbol = krol;
+	kolor = podany_kolor;
+	ruszyl_sie = false;
+	szachowany = false;
 }

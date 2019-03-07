@@ -1,7 +1,7 @@
 #pragma once
 
 enum STAN_GRY { stop = 0, start = 1, koniec = 2 };
-//enum FIGURY { pionek = 'p', wieza = 'w', kon = 'k', goniec = 'g', hetman = 'h', krol = 'k' };
+enum SYMBOL { pionek = 'P', wieza = 'W', kon = 'K', goniec = 'G', hetman = 'H', krol = 'KR' };
 enum KOLOR { bialy = 0, czarny = 1 };
 
 class cGra
@@ -17,12 +17,11 @@ public:
 class cFigura
 {
 public:
-	//FIGURY typ_figury;
+	SYMBOL symbol;
 	KOLOR kolor;
-	bool zbity;
 
-	cFigura();
-	~cFigura();
+	cFigura() = 0;
+	~cFigura() = 0;
 	virtual void ruch() = 0;
 };
 
@@ -33,6 +32,7 @@ public:
 	bool jest_na_koncu;
 
 	cPionek();
+	cPionek(KOLOR podany_kolor);
 	~cPionek();
 	void ruch();
 	void bicie();
@@ -44,6 +44,7 @@ public:
 	bool ruszyl_sie;
 
 	cWieza();
+	cWieza(KOLOR podany_kolor);
 	~cWieza();
 	void ruch();
 };
@@ -52,6 +53,7 @@ class cKon : public cFigura
 {
 public:
 	cKon();
+	cKon(KOLOR podany_kolor);
 	~cKon();
 	void ruch();
 };
@@ -60,6 +62,7 @@ class cGoniec : public cFigura
 {
 public:
 	cGoniec();
+	cGoniec(KOLOR podany_kolor);
 	~cGoniec();
 	void ruch();
 };
@@ -68,6 +71,7 @@ class cHetman : public cFigura
 {
 public:
 	cHetman();
+	cHetman(KOLOR podany_kolor);
 	~cHetman();
 	void ruch();
 };
@@ -76,8 +80,10 @@ class cKrol : public cFigura
 {
 public:
 	bool ruszyl_sie;
+	bool szachowany;
 
 	cKrol();
+	cKrol(KOLOR podany_kolor);
 	~cKrol();
 	void ruch();
 };
@@ -125,5 +131,4 @@ public:
 	~cPlansza();
 };
 
-cPlansza* plansza = new cPlansza();
-delete plansza;
+cPlansza plansza;
