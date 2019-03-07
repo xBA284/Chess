@@ -1,3 +1,4 @@
+#include <string>
 #include "Gra.h"
 
 cPlansza::cPlansza()
@@ -27,34 +28,38 @@ cTworz_figury::cTworz_figury()
 	tworz_figury_startowe();
 }
 
+cTworz_figury::~cTworz_figury()
+{
+}
+
 void cTworz_figury::tworz_figury_startowe()
 {
 	for (short i = 0; i < 8; i++)
 	{
-		biale_pionki[i] = new cPionek();
-		czarne_pionki[i] = new cPionek();
+		biale_pionki[i] = new cPionek(bialy);
+		czarne_pionki[i] = new cPionek(czarny);
 	}
 	for (short i = 0; i < 2; i++)
 	{
-		biale_wieze[i] = new cWieza();
-		czarne_wieze[i] = new cWieza();
+		biale_wieze[i] = new cWieza(bialy);
+		czarne_wieze[i] = new cWieza(czarny);
 	}
 	for (short i = 0; i < 2; i++)
 	{
-		biale_konie[i] = new cKon();
-		czarne_konie[i] = new cKon();
+		biale_skoczki[i] = new cSkoczek(bialy);
+		czarne_skoczki[i] = new cSkoczek(czarny);
 	}
 	for (short i = 0; i < 2; i++)
 	{
-		biale_gonce[i] = new cGoniec();
-		czarne_gonce[i] = new cGoniec();
+		biale_gonce[i] = new cGoniec(bialy);
+		czarne_gonce[i] = new cGoniec(czarny);
 	}
 	
-	biale_hetmany[0] = new cHetman();
-	czarne_hetmany[0] = new cHetman();
+	biale_hetmany[0] = new cHetman(bialy);
+	czarne_hetmany[0] = new cHetman(czarny);
 
-	bialy_krol = new cKrol();
-	czarny_krol = new cKrol();
+	bialy_krol = new cKrol(bialy);
+	czarny_krol = new cKrol(czarny);
 	
 }
 
@@ -66,6 +71,14 @@ cPionek::cPionek(KOLOR podany_kolor)
 	jest_na_koncu = false;
 }
 
+void cPionek::ruch()
+{
+}
+
+void cPionek::bicie()
+{
+}
+
 cWieza::cWieza(KOLOR podany_kolor)
 {
 	symbol = wieza;
@@ -73,10 +86,18 @@ cWieza::cWieza(KOLOR podany_kolor)
 	ruszyl_sie = false;
 }
 
-cKon::cKon(KOLOR podany_kolor)
+void cWieza::ruch()
 {
-	symbol = kon;
+}
+
+cSkoczek::cSkoczek(KOLOR podany_kolor)
+{
+	symbol = skoczek;
 	kolor = podany_kolor;
+}
+
+void cSkoczek::ruch()
+{
 }
 
 cGoniec::cGoniec(KOLOR podany_kolor)
@@ -85,10 +106,18 @@ cGoniec::cGoniec(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
+void cGoniec::ruch()
+{
+}
+
 cHetman::cHetman(KOLOR podany_kolor)
 {
 	symbol = hetman;
 	kolor = podany_kolor;
+}
+
+void cHetman::ruch()
+{
 }
 
 cKrol::cKrol(KOLOR podany_kolor)
@@ -98,3 +127,9 @@ cKrol::cKrol(KOLOR podany_kolor)
 	ruszyl_sie = false;
 	szachowany = false;
 }
+
+void cKrol::ruch()
+{
+}
+
+cTworz_figury stwarzacz;
