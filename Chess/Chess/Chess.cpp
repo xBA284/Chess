@@ -6,8 +6,7 @@
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
-	std::cout << static_cast<char>(stwarzacz.czarne_pionki[2]->symbol);
+	plansza.rysuj_plansze();
 
 	_getch();
 }

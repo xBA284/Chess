@@ -1,5 +1,9 @@
 #include <string>
+#include <iostream>
 #include "Gra.h"
+
+cTworz_figury stwarzacz;
+cPlansza plansza;
 
 cPlansza::cPlansza()
 {
@@ -20,6 +24,20 @@ cPlansza::~cPlansza()
 		{
 			delete pole[i][j];
 		}
+	}
+}
+
+void cPlansza::rysuj_plansze()
+{
+	std::cout << " - - - - - - - - " << std::endl;
+	for (short i = 0; i < 8; i++)
+	{
+		std::cout << "| ";
+		for (short j = 0; j < 8; j++)
+		{
+			std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
+		}
+		std::cout << "|";
 	}
 }
 
@@ -79,6 +97,14 @@ void cPionek::bicie()
 {
 }
 
+void cPionek::bicie_w_przelocie()
+{
+}
+
+void cPionek::zamiana()
+{
+}
+
 cWieza::cWieza(KOLOR podany_kolor)
 {
 	symbol = wieza;
@@ -132,4 +158,7 @@ void cKrol::ruch()
 {
 }
 
-cTworz_figury stwarzacz;
+void cKrol::roszada()
+{
+}
+

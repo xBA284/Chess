@@ -34,6 +34,8 @@ public:
 	~cPionek();
 	void ruch();
 	void bicie();
+	void bicie_w_przelocie();
+	void zamiana();
 };
 
 class cWieza : public cFigura
@@ -79,6 +81,7 @@ public:
 	cKrol(KOLOR podany_kolor);
 	~cKrol();
 	void ruch();
+	void roszada();
 };
 
 class cTworz_figury
@@ -122,6 +125,7 @@ public:
 	cFigura* pole[8][8];
 	cPlansza();
 	~cPlansza();
+	void rysuj_plansze();
 };
 
 extern cPlansza plansza;
