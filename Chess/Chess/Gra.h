@@ -20,8 +20,8 @@ public:
 	SYMBOL symbol;
 	KOLOR kolor;
 
-	cFigura() = 0;
-	~cFigura() = 0;
+	cFigura();
+	~cFigura();
 	virtual void ruch() = 0;
 };
 

@@ -27,11 +27,6 @@ cTworz_figury::cTworz_figury()
 	tworz_figury_startowe();
 }
 
-cTworz_figury::~cTworz_figury()
-{
-
-}
-
 void cTworz_figury::tworz_figury_startowe()
 {
 	for (short i = 0; i < 8; i++)
@@ -69,6 +64,31 @@ cPionek::cPionek(KOLOR podany_kolor)
 	kolor = podany_kolor;
 	ruszyl_sie = false;
 	jest_na_koncu = false;
+}
+
+cWieza::cWieza(KOLOR podany_kolor)
+{
+	symbol = wieza;
+	kolor = podany_kolor;
+	ruszyl_sie = false;
+}
+
+cKon::cKon(KOLOR podany_kolor)
+{
+	symbol = kon;
+	kolor = podany_kolor;
+}
+
+cGoniec::cGoniec(KOLOR podany_kolor)
+{
+	symbol = goniec;
+	kolor = podany_kolor;
+}
+
+cHetman::cHetman(KOLOR podany_kolor)
+{
+	symbol = hetman;
+	kolor = podany_kolor;
 }
 
 cKrol::cKrol(KOLOR podany_kolor)
