@@ -44,28 +44,32 @@ void cPlansza::rysuj_plansze()
 
 	short licznik_tla = 0;
 
-	std::cout << "  - - - - - - - - " << std::endl;
+	std::cout << "  A B C D E F G H" << std::endl;
 	for (short i = 0; i < 8; i++)
 	{
-		std::cout << "| ";
+		switch (i)
+		{
+			case 0: std::cout << "8 ";
+				break;
+			case 1: std::cout << "7 ";
+				break;
+			case 2: std::cout << "6 ";
+				break;
+			case 3: std::cout << "5 ";
+				break;
+			case 4: std::cout << "4 ";
+				break;
+			case 5: std::cout << "3 ";
+				break;
+			case 6: std::cout << "2 ";
+				break;
+			case 7: std::cout << "1 ";
+				break;
+		}
+		
 		for (short j = 0; j < 8; j++)
 		{
 			if (licznik_tla == 0)
-			{
-				if (plansza.pole[i][j]->kolor == czarny)
-				{
-					SetConsoleTextAttribute(hOut, BACKGROUND_RED);
-					std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
-				}
-				else
-				{
-					SetConsoleTextAttribute(hOut, BACKGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-					std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
-				}
-
-				licznik_tla++;
-			}
-			else
 			{
 				if (plansza.pole[i][j]->kolor == czarny)
 				{
@@ -78,31 +82,70 @@ void cPlansza::rysuj_plansze()
 					std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
 				}
 
+				licznik_tla++;
+			}
+			else
+			{
+				if (plansza.pole[i][j]->kolor == czarny)
+				{
+					SetConsoleTextAttribute(hOut, BACKGROUND_RED);
+					std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
+				}
+				else
+				{
+					SetConsoleTextAttribute(hOut, BACKGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+					std::cout << static_cast<char>(plansza.pole[i][j]->symbol) << " ";
+				}
+
 				licznik_tla--;
 			}	
 		}
 		if (licznik_tla == 1) licznik_tla = 0;
 		else licznik_tla = 1;
 		SetConsoleTextAttribute(hOut, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
-		std::cout << " |\n";
+		switch (i)
+		{
+		case 0: std::cout << " 8\n";
+			break;
+		case 1: std::cout << " 7\n";
+			break;
+		case 2: std::cout << " 6\n";
+			break;
+		case 3: std::cout << " 5\n";
+			break;
+		case 4: std::cout << " 4\n";
+			break;
+		case 5: std::cout << " 3\n";
+			break;
+		case 6: std::cout << " 2\n";
+			break;
+		case 7: std::cout << " 1\n";
+			break;
+		}
 	}
-	std::cout << "  - - - - - - - - " << std::endl;
+	std::cout << "  A B C D E F G H" << std::endl;
 }
 
 cFigura* cTworz_figury::stworz_figure(SYMBOL symbol, KOLOR kolor) const {
 	switch (symbol) {
 		case goniec:
 			return new cGoniec(kolor);
+			break;
 		case hetman:
 			return new cHetman(kolor);
+			break;
 		case krol:
 			return new cKrol(kolor);
+			break;
 		case pionek:
 			return new cPionek(kolor);
+			break;
 		case skoczek:
 			return new cSkoczek(kolor);
+			break;
 		case wieza:
 			return new cWieza(kolor);
+			break;
 	}
 }
 
