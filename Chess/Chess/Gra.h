@@ -96,7 +96,7 @@ class cTworz_figury
 {
 public:
 	cFigura* stworz_figure(SYMBOL symbol, KOLOR kolor) const;
-	cFigura* stworz_puste_pose() const;
+	cFigura* stworz_puste_pole() const;
 };
 
 extern cTworz_figury stwarzacz;
