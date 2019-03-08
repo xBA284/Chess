@@ -40,6 +40,8 @@ cPlansza::~cPlansza()
 
 void cPlansza::rysuj_plansze()
 {
+	system("cls");
+
 	short licznik_tla = 0;
 
 	std::cout << "  - - - - - - - - " << std::endl;
