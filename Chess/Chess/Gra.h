@@ -112,4 +112,4 @@ public:
 
 extern cPlansza plansza;
 
-void ruch(cFigura* skad, cFigura* dokad);
+void ruch(cFigura** skad, cFigura** dokad);

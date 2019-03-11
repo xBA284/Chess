@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Gra.h"
 #include <windows.h>
+#include <conio.h>
 
 HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -244,9 +245,13 @@ void cPuste::ruch()
 {
 }
 
-void ruch(cFigura * pole_obecne, cFigura * pole_docelowe)
+void ruch(cFigura** pole_obecne, cFigura** pole_docelowe)
 {
-	delete pole_docelowe;
-	pole_docelowe = pole_obecne;
-	pole_obecne = stwarzacz.stworz_puste_pole();
+	delete *pole_docelowe;
+	*pole_docelowe = *pole_obecne;
+
+	_getch();
+	plansza.rysuj_plansze();
+	delete *pole_obecne;
+	*pole_obecne = stwarzacz.stworz_puste_pole();
 }
