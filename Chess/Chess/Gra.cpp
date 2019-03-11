@@ -243,3 +243,10 @@ cPuste::cPuste()
 void cPuste::ruch()
 {
 }
+
+void ruch(cFigura * pole_obecne, cFigura * pole_docelowe)
+{
+	delete pole_docelowe;
+	pole_docelowe = pole_obecne;
+	pole_obecne = stwarzacz.stworz_puste_pole();
+}
