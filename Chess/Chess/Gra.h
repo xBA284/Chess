@@ -40,7 +40,7 @@ public:
 
 	cPionek(KOLOR podany_kolor);
 	~cPionek();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 	void bicie();
 	void bicie_w_przelocie();
 	void zamiana();
@@ -53,7 +53,7 @@ public:
 
 	cWieza(KOLOR podany_kolor);
 	~cWieza();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 };
 
 class cSkoczek : public cFigura
@@ -61,7 +61,7 @@ class cSkoczek : public cFigura
 public:
 	cSkoczek(KOLOR podany_kolor);
 	~cSkoczek();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 };
 
 class cGoniec : public cFigura
@@ -69,7 +69,7 @@ class cGoniec : public cFigura
 public:
 	cGoniec(KOLOR podany_kolor);
 	~cGoniec();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 };
 
 class cHetman : public cFigura
@@ -77,7 +77,7 @@ class cHetman : public cFigura
 public:
 	cHetman(KOLOR podany_kolor);
 	~cHetman();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 };
 
 class cKrol : public cFigura
@@ -88,7 +88,7 @@ public:
 
 	cKrol(KOLOR podany_kolor);
 	~cKrol();
-	void ruch();
+	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
 	void roszada();
 };
 

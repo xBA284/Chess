@@ -162,7 +162,7 @@ cPionek::cPionek(KOLOR podany_kolor)
 	jest_na_koncu = false;
 }
 
-void cPionek::ruch()
+void cPionek::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
 }
 
@@ -185,8 +185,9 @@ cWieza::cWieza(KOLOR podany_kolor)
 	ruszyl_sie = false;
 }
 
-void cWieza::ruch()
+void cWieza::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
+
 }
 
 cSkoczek::cSkoczek(KOLOR podany_kolor)
@@ -195,7 +196,7 @@ cSkoczek::cSkoczek(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cSkoczek::ruch()
+void cSkoczek::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
 }
 
@@ -205,7 +206,7 @@ cGoniec::cGoniec(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cGoniec::ruch()
+void cGoniec::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
 }
 
@@ -215,7 +216,7 @@ cHetman::cHetman(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cHetman::ruch()
+void cHetman::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
 }
 
@@ -227,7 +228,7 @@ cKrol::cKrol(KOLOR podany_kolor)
 	szachowany = false;
 }
 
-void cKrol::ruch()
+void cKrol::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
 {
 }
 
