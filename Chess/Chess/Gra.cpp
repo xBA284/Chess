@@ -163,7 +163,7 @@ cPionek::cPionek(KOLOR podany_kolor)
 	jest_na_koncu = false;
 }
 
-short cPionek::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cPionek::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	short dlugosc_ruchu;
 	short dlugosc_1ruchu;
@@ -179,21 +179,21 @@ short cPionek::ruch(short ob_x, short ob_y, short do_x, short do_y)
 		dlugosc_1ruchu = 2;
 	}
 
-	if (((plansza.pole[do_x][do_y] == plansza.pole[ob_x + dlugosc_1ruchu][ob_y] && this->ruszyl_sie == false && plansza.pole[ob_x + dlugosc_1ruchu][ob_y]->symbol == pusty) || plansza.pole[do_x][do_y] == plansza.pole[ob_x + dlugosc_ruchu][ob_y]) && plansza.pole[ob_x + dlugosc_ruchu][ob_y]->symbol == pusty)
+	if (((plansza.pole[do_y][do_x] == plansza.pole[ob_y + dlugosc_1ruchu][ob_x] && this->ruszyl_sie == false && plansza.pole[ob_y + dlugosc_1ruchu][ob_x]->symbol == pusty) || plansza.pole[do_y][do_x] == plansza.pole[ob_y + dlugosc_ruchu][ob_x]) && plansza.pole[ob_y + dlugosc_ruchu][ob_x]->symbol == pusty)
 	{
-		wyk_ruch(ob_x, ob_y, do_x, do_y);
+		wyk_ruch(ob_y, ob_x, do_y, do_x);
 		this->ruszyl_sie = true;
 		return 0;
 	}
 	else return 1;
 }
 
-short cPionek::bicie(short ob_x, short ob_y, short do_x, short do_y)
+short cPionek::bicie(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
 
-short cPionek::bicie_w_przelocie(short ob_x, short ob_y, short do_x, short do_y)
+short cPionek::bicie_w_przelocie(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -209,7 +209,7 @@ cWieza::cWieza(KOLOR podany_kolor)
 	ruszyl_sie = false;
 }
 
-short cWieza::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cWieza::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -220,7 +220,7 @@ cSkoczek::cSkoczek(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-short cSkoczek::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cSkoczek::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -231,7 +231,7 @@ cGoniec::cGoniec(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-short cGoniec::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cGoniec::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -242,7 +242,7 @@ cHetman::cHetman(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-short cHetman::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cHetman::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -255,7 +255,7 @@ cKrol::cKrol(KOLOR podany_kolor)
 	szachowany = false;
 }
 
-short cKrol::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cKrol::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
@@ -270,14 +270,14 @@ cPuste::cPuste()
 	kolor = zaden;
 }
 
-short cPuste::ruch(short ob_x, short ob_y, short do_x, short do_y)
+short cPuste::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
 	return 0;
 }
 
-void wyk_ruch(short ob_x, short ob_y, short do_x, short do_y)
+void wyk_ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
-	delete plansza.pole[do_x][do_y];
-	plansza.pole[do_x][do_y] = plansza.pole[ob_x][ob_y];
-	plansza.pole[ob_x][ob_y] = stwarzacz.stworz_puste_pole();
+	delete plansza.pole[do_y][do_x];
+	plansza.pole[do_y][do_x] = plansza.pole[ob_y][ob_x];
+	plansza.pole[ob_y][ob_x] = stwarzacz.stworz_puste_pole();
 }
