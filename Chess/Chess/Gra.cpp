@@ -246,9 +246,9 @@ void cPuste::ruch()
 {
 }
 
-void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+void ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
-	delete pole_docelowe;
-	pole_docelowe = pole_obecne;
-	pole_obecne = stwarzacz.stworz_puste_pole();
+	delete plansza.pole[do_x][do_y];
+	plansza.pole[do_x][do_y] = plansza.pole[ob_x][ob_y];
+	plansza.pole[ob_x][ob_y] = stwarzacz.stworz_puste_pole();
 }

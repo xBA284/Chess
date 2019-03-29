@@ -112,4 +112,4 @@ public:
 
 extern cPlansza plansza;
 
-void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+void ruch(short ob_x, short ob_y, short do_x, short do_y);
