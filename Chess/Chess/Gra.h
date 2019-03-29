@@ -21,7 +21,7 @@ public:
 	SYMBOL symbol;
 	KOLOR kolor;
 
-	virtual void ruch() = 0;
+	virtual short ruch(short ob_x, short ob_y, short do_x, short do_y) = 0;
 };
 
 class cPuste : public cFigura
@@ -29,7 +29,7 @@ class cPuste : public cFigura
 public:
 	cPuste();
 	~cPuste();
-	void ruch();
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 };
 
 class cPionek : public cFigura
@@ -40,9 +40,9 @@ public:
 
 	cPionek(KOLOR podany_kolor);
 	~cPionek();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
-	void bicie();
-	void bicie_w_przelocie();
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
+	short bicie(short ob_x, short ob_y, short do_x, short do_y);
+	short bicie_w_przelocie(short ob_x, short ob_y, short do_x, short do_y);
 	void zamiana();
 };
 
@@ -53,7 +53,7 @@ public:
 
 	cWieza(KOLOR podany_kolor);
 	~cWieza();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 };
 
 class cSkoczek : public cFigura
@@ -61,7 +61,7 @@ class cSkoczek : public cFigura
 public:
 	cSkoczek(KOLOR podany_kolor);
 	~cSkoczek();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 };
 
 class cGoniec : public cFigura
@@ -69,7 +69,7 @@ class cGoniec : public cFigura
 public:
 	cGoniec(KOLOR podany_kolor);
 	~cGoniec();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 };
 
 class cHetman : public cFigura
@@ -77,7 +77,7 @@ class cHetman : public cFigura
 public:
 	cHetman(KOLOR podany_kolor);
 	~cHetman();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 };
 
 class cKrol : public cFigura
@@ -88,7 +88,7 @@ public:
 
 	cKrol(KOLOR podany_kolor);
 	~cKrol();
-	void ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe);
+	short ruch(short ob_x, short ob_y, short do_x, short do_y);
 	void roszada();
 };
 
@@ -111,5 +111,6 @@ public:
 };
 
 extern cPlansza plansza;
+extern KOLOR kogo_kolej;
 
-void ruch(short ob_x, short ob_y, short do_x, short do_y);
+void wyk_ruch(short ob_x, short ob_y, short do_x, short do_y);

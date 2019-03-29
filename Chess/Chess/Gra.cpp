@@ -8,6 +8,7 @@ HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
 cTworz_figury stwarzacz;
 cPlansza plansza;
+KOLOR kogo_kolej;
 
 void plansza_poczatkowa(cFigura* plansza[8][8]) {
 	SYMBOL symbole[] = {wieza, skoczek, goniec, hetman, krol, goniec, skoczek, wieza};
@@ -162,16 +163,39 @@ cPionek::cPionek(KOLOR podany_kolor)
 	jest_na_koncu = false;
 }
 
-void cPionek::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cPionek::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	short dlugosc_ruchu;
+	short dlugosc_1ruchu;
+
+	if (kogo_kolej == bialy)
+	{
+		dlugosc_ruchu = -1;
+		dlugosc_1ruchu = -2;
+	}
+	else
+	{
+		dlugosc_ruchu = 1;
+		dlugosc_1ruchu = 2;
+	}
+
+	if (((plansza.pole[do_x][do_y] == plansza.pole[ob_x + dlugosc_1ruchu][ob_y] && this->ruszyl_sie == false && plansza.pole[ob_x + dlugosc_1ruchu][ob_y]->symbol == pusty) || plansza.pole[do_x][do_y] == plansza.pole[ob_x + dlugosc_ruchu][ob_y]) && plansza.pole[ob_x + dlugosc_ruchu][ob_y]->symbol == pusty)
+	{
+		wyk_ruch(ob_x, ob_y, do_x, do_y);
+		this->ruszyl_sie = true;
+		return 0;
+	}
+	else return 1;
 }
 
-void cPionek::bicie()
+short cPionek::bicie(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
-void cPionek::bicie_w_przelocie()
+short cPionek::bicie_w_przelocie(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
 void cPionek::zamiana()
@@ -185,9 +209,9 @@ cWieza::cWieza(KOLOR podany_kolor)
 	ruszyl_sie = false;
 }
 
-void cWieza::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cWieza::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
-
+	return 0;
 }
 
 cSkoczek::cSkoczek(KOLOR podany_kolor)
@@ -196,8 +220,9 @@ cSkoczek::cSkoczek(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cSkoczek::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cSkoczek::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
 cGoniec::cGoniec(KOLOR podany_kolor)
@@ -206,8 +231,9 @@ cGoniec::cGoniec(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cGoniec::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cGoniec::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
 cHetman::cHetman(KOLOR podany_kolor)
@@ -216,8 +242,9 @@ cHetman::cHetman(KOLOR podany_kolor)
 	kolor = podany_kolor;
 }
 
-void cHetman::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cHetman::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
 cKrol::cKrol(KOLOR podany_kolor)
@@ -228,8 +255,9 @@ cKrol::cKrol(KOLOR podany_kolor)
 	szachowany = false;
 }
 
-void cKrol::ruch(cFigura*& pole_obecne, cFigura*& pole_docelowe)
+short cKrol::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
 void cKrol::roszada()
@@ -242,11 +270,12 @@ cPuste::cPuste()
 	kolor = zaden;
 }
 
-void cPuste::ruch()
+short cPuste::ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
+	return 0;
 }
 
-void ruch(short ob_x, short ob_y, short do_x, short do_y)
+void wyk_ruch(short ob_x, short ob_y, short do_x, short do_y)
 {
 	delete plansza.pole[do_x][do_y];
 	plansza.pole[do_x][do_y] = plansza.pole[ob_x][ob_y];

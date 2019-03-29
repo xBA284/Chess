@@ -7,7 +7,13 @@
 int main()
 {
 	plansza.rysuj_plansze();
-	ruch(7,0,0,3);
+	kogo_kolej = bialy;
+	short blad = plansza.pole[6][0]->ruch(6, 0, 4, 0);
+	std::cout << blad;
+	_getch();
+	plansza.rysuj_plansze();
+	blad = plansza.pole[4][0]->ruch(4, 0, 3, 0);
+	std::cout << blad;
 	_getch();
 	plansza.rysuj_plansze();
 
