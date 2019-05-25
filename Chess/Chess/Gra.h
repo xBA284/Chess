@@ -18,8 +18,8 @@ public:
 class cFigura
 {
 public:
-	SYMBOL symbol;
-	KOLOR kolor;
+	SYMBOL symbol = pusty;
+	KOLOR kolor = zaden;
 
 	virtual short ruch(short ob_y, short ob_x, short do_y, short do_x) = 0;
 };
