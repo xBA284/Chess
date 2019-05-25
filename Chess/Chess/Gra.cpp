@@ -165,6 +165,8 @@ cPionek::cPionek(KOLOR podany_kolor)
 
 short cPionek::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
+	if (miesci_sie_na_planszy(ob_y, ob_x, do_y, do_x) == false) return 1;
+
 	short dlugosc_ruchu;
 	short dlugosc_1ruchu;
 
@@ -211,6 +213,82 @@ cWieza::cWieza(KOLOR podany_kolor)
 
 short cWieza::ruch(short ob_y, short ob_x, short do_y, short do_x)
 {
+	if (miesci_sie_na_planszy(ob_y, ob_x, do_y, do_x) == false) return 1;
+
+	if (ob_y != do_y && ob_x != do_x) return 1;
+
+	short roznica;
+
+	short os;
+	if (ob_y == do_y)
+	{
+		if (ob_x == do_x) return 1;
+		else
+		{
+			os = 1;
+			roznica = ob_x - do_x;
+		}
+	}
+	else
+	{
+		os = 0;
+		roznica = ob_y - do_y;
+	}
+
+	if (os == 0)
+	{
+		if (roznica < 0)
+		{
+			for (short i = -1; i > roznica; i--)
+			{
+				if (plansza.pole[ob_y + i][ob_x]->symbol != pusty) return 1;
+			}
+			if (plansza.pole[do_y][do_x]->kolor == plansza.pole[ob_y][ob_x]->kolor) return 1;
+			else wyk_ruch(ob_y, ob_x, do_y, do_x);
+			this->ruszyl_sie = true;
+			return 0;
+		}
+
+		if (roznica > 0)
+		{
+			for (short i = 1; i < roznica; i++)
+			{
+				if (plansza.pole[ob_y - i][ob_x]->symbol != pusty) return 1;
+			}
+			if (plansza.pole[do_y][do_x]->kolor == plansza.pole[ob_y][ob_x]->kolor) return 1;
+			else wyk_ruch(ob_y, ob_x, do_y, do_x);
+			this->ruszyl_sie = true;
+			return 0;
+		}
+	}
+
+	if (os == 1)
+	{
+		if (roznica < 0)
+		{
+			for (short i = -1; i > roznica; i--)
+			{
+				if (plansza.pole[ob_y][ob_x + i]->symbol != pusty) return 1;
+			}
+			if (plansza.pole[do_y][do_x]->kolor == plansza.pole[ob_y][ob_x]->kolor) return 1;
+			else wyk_ruch(ob_y, ob_x, do_y, do_x);
+			this->ruszyl_sie = true;
+			return 0;
+		}
+
+		if (roznica > 0)
+		{
+			for (short i = 1; i < roznica; i++)
+			{
+				if (plansza.pole[ob_y][ob_x - i]->symbol != pusty) return 1;
+			}
+			if (plansza.pole[do_y][do_x]->kolor == plansza.pole[ob_y][ob_x]->kolor) return 1;
+			else wyk_ruch(ob_y, ob_x, do_y, do_x);
+			this->ruszyl_sie = true;
+			return 0;
+		}
+	}
+
 	return 0;
 }
 
@@ -280,4 +358,10 @@ void wyk_ruch(short ob_y, short ob_x, short do_y, short do_x)
 	delete plansza.pole[do_y][do_x];
 	plansza.pole[do_y][do_x] = plansza.pole[ob_y][ob_x];
 	plansza.pole[ob_y][ob_x] = stwarzacz.stworz_puste_pole();
+}
+
+bool miesci_sie_na_planszy(short ob_y, short ob_x, short do_y, short do_x)
+{
+	if (ob_y < 8 && ob_y > -1 && ob_x < 8 && ob_x > -1 && do_y < 8 && do_y > -1 && do_x < 8 && do_x > -1) return true;
+	else return false;
 }

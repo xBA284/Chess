@@ -16,6 +16,18 @@ int main()
 	std::cout << blad;
 	_getch();
 	plansza.rysuj_plansze();
+	blad = plansza.pole[7][0]->ruch(7, 0, 4, 0);
+	std::cout << blad;
+	_getch();
+	plansza.rysuj_plansze();
+	blad = plansza.pole[4][0]->ruch(4, 0, 4, 7);
+	std::cout << blad;
+	_getch();
+	plansza.rysuj_plansze();
+	blad = plansza.pole[4][7]->ruch(4, 7, 4, 3);
+	std::cout << blad;
+	_getch();
+	plansza.rysuj_plansze();
 
 	_getch();
     return 0;

@@ -114,3 +114,5 @@ extern cPlansza plansza;
 extern KOLOR kogo_kolej;
 
 void wyk_ruch(short ob_y, short ob_x, short do_y, short do_x);
+
+bool miesci_sie_na_planszy(short ob_y, short ob_x, short do_y, short do_x);
